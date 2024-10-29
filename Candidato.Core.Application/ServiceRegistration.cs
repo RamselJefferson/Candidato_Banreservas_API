@@ -12,6 +12,10 @@ namespace Candidato.Core.Application
         public static void AddApplicationLayer(this IServiceCollection service)
         {
             service.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
+            service.AddTransient<ICandidatoService, CandidatoService>();
+            service.AddTransient<IApiRequestLogService, ApiRequestLogService>();
         }
     }
 }

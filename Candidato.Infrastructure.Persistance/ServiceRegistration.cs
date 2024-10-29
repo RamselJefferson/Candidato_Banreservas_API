@@ -18,6 +18,10 @@ namespace Candidato.Infrastructure.Persistance
                     m => m.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
             svc.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            svc.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            svc.AddTransient<ICandidatoRepository, CandidatoRepository>();
+            svc.AddTransient<IApiRequestLogRepository, ApiRequestLogRepository>();
         }
     }
 }
